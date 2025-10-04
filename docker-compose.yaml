@@ -11,7 +11,7 @@ services:
     env_file: .env
 
   db:
-    image: bitnami/postgresql
+    image: postgres:18-alpine3.22
     container_name: emotion-db
     restart: always
     environment:

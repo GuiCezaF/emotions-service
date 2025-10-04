@@ -6,6 +6,6 @@ DEBUG = bool_env(envs("DEBUG", default="false"))
 
 app = FastAPI(debug=DEBUG)
 
-@app.get("/")
-def read_root():
-    return {"msg": "Hello FastAPI + Alembic"}
+@app.get("/health")
+async def health():
+    return {"status": "OK"}
