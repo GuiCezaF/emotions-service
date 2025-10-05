@@ -18,12 +18,13 @@ class EmotionService:
             emotions = self._detector.detect_emotions(image)
 
             if not emotions:
-                return EmotionResponse(
+                res = EmotionResponse(
                     user_id=user_id,
                     timestamp=timestamp,
-                    emotion=None,
+                    emotion="unknown",
                     confidence=0.0
                 )
+                return res.model_dump_json()
 
             emotion_response = emotions[0].get("emotions", {})
 
