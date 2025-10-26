@@ -15,7 +15,7 @@ async def consume_frames():
                 data = json.loads(payload)
 
                 result = service.process_emotion(data)
-                await redis.publish(REDIS_CHANNEL, json.dumps(result))
+                await redis.publish(REDIS_CHANNEL, result)
 
         except Exception as e:
             print(f"[FastAPI] Erro no consumo: {e}")
